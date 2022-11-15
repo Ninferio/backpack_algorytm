@@ -1,0 +1,15 @@
+C:\Users\malyg\Desktop\Progs\Backpack_algorytm\Backpack_algorytm\bin\Debug\Backpack_algorytm.exe.config
+C:\Users\malyg\Desktop\Progs\Backpack_algorytm\Backpack_algorytm\bin\Debug\Backpack_algorytm.exe
+C:\Users\malyg\Desktop\Progs\Backpack_algorytm\Backpack_algorytm\bin\Debug\Backpack_algorytm.pdb
+C:\Users\malyg\Desktop\Progs\Backpack_algorytm\Backpack_algorytm\obj\Debug\Backpack_algorytm.csprojAssemblyReference.cache
+C:\Users\malyg\Desktop\Progs\Backpack_algorytm\Backpack_algorytm\obj\Debug\MainWindow.g.cs
+C:\Users\malyg\Desktop\Progs\Backpack_algorytm\Backpack_algorytm\obj\Debug\App.g.cs
+C:\Users\malyg\Desktop\Progs\Backpack_algorytm\Backpack_algorytm\obj\Debug\Backpack_algorytm_MarkupCompile.cache
+C:\Users\malyg\Desktop\Progs\Backpack_algorytm\Backpack_algorytm\obj\Debug\Backpack_algorytm_MarkupCompile.lref
+C:\Users\malyg\Desktop\Progs\Backpack_algorytm\Backpack_algorytm\obj\Debug\MainWindow.baml
+C:\Users\malyg\Desktop\Progs\Backpack_algorytm\Backpack_algorytm\obj\Debug\Backpack_algorytm.g.resources
+C:\Users\malyg\Desktop\Progs\Backpack_algorytm\Backpack_algorytm\obj\Debug\Backpack_algorytm.Properties.Resources.resources
+C:\Users\malyg\Desktop\Progs\Backpack_algorytm\Backpack_algorytm\obj\Debug\Backpack_algorytm.csproj.GenerateResource.cache
+C:\Users\malyg\Desktop\Progs\Backpack_algorytm\Backpack_algorytm\obj\Debug\Backpack_algorytm.csproj.CoreCompileInputs.cache
+C:\Users\malyg\Desktop\Progs\Backpack_algorytm\Backpack_algorytm\obj\Debug\Backpack_algorytm.exe
+C:\Users\malyg\Desktop\Progs\Backpack_algorytm\Backpack_algorytm\obj\Debug\Backpack_algorytm.pdb
