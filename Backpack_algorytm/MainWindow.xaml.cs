@@ -25,7 +25,7 @@ namespace Backpack_algorytm
         //лист предметов
         List<Items> items = new List<Items>();
         int count;
-        int max_space = 5;
+        int max_space = 2000;
         int[,] table;
         int matrix_height;
         int matrix_wight;
@@ -33,7 +33,8 @@ namespace Backpack_algorytm
         {
             InitializeComponent();
 
-            string path = @"items_example.txt";
+            //@"items_example.txt"
+            string path = @"Items.txt";
 
             GetItemCount(path);
 
@@ -86,7 +87,7 @@ namespace Backpack_algorytm
 
         public void GoBackPack()
         {
-
+            
             matrix_height = count + 1;
             matrix_wight = max_space + 1;
             table = new int[matrix_height, matrix_wight];
@@ -94,11 +95,11 @@ namespace Backpack_algorytm
 
             //перебор предметам
 
-            for (int i = 0; i <= matrix_height; i++)
+            for (int i = 0; i < matrix_height; i++)
             {
                
                 //перебор по весу
-                for (int j = 0; j <= matrix_wight; j++)
+                for (int j = 0; j < matrix_wight; j++)
                 {
                     //заполение 0-лями 0-левых элементов (предмет - 0, вес - 0)
                     if (i == 0 || j == 0)
@@ -115,7 +116,7 @@ namespace Backpack_algorytm
                         //вес предмета меньше веса рюкзака?
                         if (area_item < backpack_weight)
                         {
-                            MessageBox.Show(table[i - 1, j].ToString());
+                            
                             //стоимость предмета с верху
                             int first = table[i-1, j];
                             //какая-то страшная формула
@@ -150,14 +151,16 @@ namespace Backpack_algorytm
 
         public void GetMatrix(int[,] Matrix)
         {
-
-
+           // int answer = Matrix[matrix_height, matrix_wight];
+           // MessageBox.Show(answer.ToString());
+           
             for (int i = 0; i < matrix_height; i++)
             {
                 string str = "";
+                //перебор по весу
                 for (int j = 0; j < matrix_wight; j++)
                 {
-                    str += String.Format("[{0, 3}]", Matrix[i, j]);
+                    str += " "+ Matrix[i, j];
                 }
                 lblmatrix.Content += str + "\n";
             }

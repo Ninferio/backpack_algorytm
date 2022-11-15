@@ -5,15 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Backpack_algorytm"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="800" Width="800">
     <Grid>
         <StackPanel>
             <StackPanel>
                 <Button Name="btnDoit" Content="Do it"  Click="Button_Click"/>
             </StackPanel>
             <StackPanel Width="auto">
-                <ScrollViewer HorizontalScrollBarVisibility="Visible">
-                    <Label Name="lblmatrix" Background="AliceBlue"/>
+                <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible">
+                    <Label Name="lblmatrix" Background="AliceBlue" FontSize="10"/>
                 </ScrollViewer>
                 
             </StackPanel>
