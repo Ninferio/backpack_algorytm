@@ -26,7 +26,7 @@ namespace Backpack_algorytm
         //лист предметов
         List<Items> items = new List<Items>();
         int count;
-        string path = @"Items.txt";
+        string path = @"Items\";
         int max_space = 2000;
         int[,] table;
         int matrix_height;
@@ -34,48 +34,13 @@ namespace Backpack_algorytm
         public MainWindow()
         {
             InitializeComponent();
-
-            //@"items_example.txt"
-           
-
-            GetItemCount(path);
-            int number = 0;
+            string[] ddd = null ;
+            Get_file_from_folder();
+            //Get_items_from_file(cmb_files.Text);
 
 
-            string line;
-            //Items[] items = new Items[count];
-            TextReader reader = new StreamReader(path);
-            while ((line = reader.ReadLine()) != null)
-            {
-                number++;
-                Items item = new Items();
-                item.id = number;
-                string[] subs = line.Split(',');
-                int i = 0;
-                foreach (var word in subs)
-                {
-                    switch (i)
-                    {
-                        case 0:
-                            i++;
-                            item.name = word;
-                            break;
 
-                        case 1:
-                            i++;
-                            item.area = Convert.ToInt32(word);
-                            break;
 
-                        case 2:
-                            i++;
-                            item.value = Convert.ToInt32(word);
-                            break;
-                    }
-                }
-                items.Add(item);
-            }
-            reader.Close();
-            ReloadDTG();
         }
         public void GetItemCount(string path)
         {
@@ -186,12 +151,12 @@ namespace Backpack_algorytm
                 select_items.Add(item);
             }
             //Удоление выбранных предметов
-            foreach(var item in select_items)
+            foreach (var item in select_items)
             {
                 string item_string = String.Format("{0},{1},{2}", item.name, item.area, item.value);
                 //перепор файла
                 string line;
-                TextReader reader = new StreamReader(path);
+                TextReader reader = new StreamReader(@"Items\\"+ cmb_files.SelectedItem.ToString());
 
                 while ((line = reader.ReadLine()) != null)
                 {
@@ -205,16 +170,7 @@ namespace Backpack_algorytm
                 reader.Close();
                 
             }
-            /*
-            Items selected_item = (Items)dtg_items_table.SelectedItem;
-            if (selected_item != null)
-            {
-                
-            }
-            else
-            {
-                MessageBox.Show("выберете предмет");
-            }*/
+           
         }
 
         private void Btn_add_item_Click(object sender, RoutedEventArgs e)
@@ -251,6 +207,80 @@ namespace Backpack_algorytm
 
             
         }
-        
+        /// <summary>
+        /// Создание списка файлов
+        /// </summary>
+        /// <param name="files">Массив строк</param>
+        /// <returns>Масссив имен файлов</returns>
+        public void Get_file_from_folder()
+        {
+            string path = @"Items";
+            int i = 0;
+            string[] allfiles = Directory.GetFiles(path);
+            int count = allfiles.Length;
+            string[] files = new string[count];
+            foreach (string filename in allfiles)
+            {
+                
+                
+                files[i] = filename.Replace("Items\\", "");
+                i++;
+            }
+            cmb_files.ItemsSource = files;
+            cmb_files.SelectedItem = files[0];
+            
+           
+
+
+
+        }
+        public void Get_items_from_file(string path)
+        {
+            items = new List<Items>();
+            //GetItemCount(path);
+            int number = 0;
+
+            
+            string line;
+            //Items[] items = new Items[count];
+            TextReader reader = new StreamReader(@"Items\\"+path);
+            while ((line = reader.ReadLine()) != null)
+            {
+                number++;
+                Items item = new Items();
+                item.id = number;
+                string[] subs = line.Split(',');
+                int i = 0;
+                foreach (var word in subs)
+                {
+                    switch (i)
+                    {
+                        case 0:
+                            i++;
+                            item.name = word;
+                            break;
+
+                        case 1:
+                            i++;
+                            item.area = Convert.ToInt32(word);
+                            break;
+
+                        case 2:
+                            i++;
+                            item.value = Convert.ToInt32(word);
+                            break;
+                    }
+                }
+                items.Add(item);
+            }
+            reader.Close();
+            ReloadDTG();
+        }
+
+        private void Cmb_files_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
+            Get_items_from_file(cmb_files.SelectedItem.ToString());
+        }
     }
 }

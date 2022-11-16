@@ -55,6 +55,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="model\fabrica\IitemsClone.cs" />
+    <Compile Include="model\fabrica\Item_create.cs" />
     <Compile Include="Windows\Add_item_wondow.xaml.cs">
       <DependentUpon>Add_item_wondow.xaml</DependentUpon>
     </Compile>

@@ -11,18 +11,28 @@
         <StackPanel>
             <TabControl>
                 <TabItem Header="Предметы">
+                    
                     <StackPanel>
-                        <StackPanel>
-                            <GroupBox Header="Таблица всех предметов">
-                                <DataGrid AutoGenerateColumns="False" Name="dtg_items_table" Height="300" CanUserAddRows="False" CanUserDeleteRows="True" SelectedCellsChanged="Dtg_items_table_SelectedCellsChanged" SelectionMode="Extended">
-                                    <DataGrid.Columns>
-                                        <DataGridTextColumn Header="Номер" Binding="{Binding id}"/>
-                                        <DataGridTextColumn Header="Наименование" Binding="{Binding name}"/>
-                                        <DataGridTextColumn Header="Стоимость" Binding="{Binding value}"/>
-                                        <DataGridTextColumn Header="Площадь/вес" Binding="{Binding area}"/>
-                                    </DataGrid.Columns>
-                                </DataGrid>
-                            </GroupBox>
+                        <StackPanel Orientation="Horizontal">
+                            <StackPanel>
+                                <GroupBox Header="Таблица всех предметов">
+                                    <DataGrid AutoGenerateColumns="False" Name="dtg_items_table" Height="300" CanUserAddRows="False" CanUserDeleteRows="True" SelectedCellsChanged="Dtg_items_table_SelectedCellsChanged" SelectionMode="Extended">
+                                        <DataGrid.Columns>
+                                            <DataGridTextColumn Header="Номер" Binding="{Binding id}"/>
+                                            <DataGridTextColumn Header="Наименование" Binding="{Binding name}"/>
+                                            <DataGridTextColumn Header="Стоимость" Binding="{Binding value}"/>
+                                            <DataGridTextColumn Header="Площадь/вес" Binding="{Binding area}"/>
+                                        </DataGrid.Columns>
+                                    </DataGrid>
+                                </GroupBox>
+                            </StackPanel>
+                            <StackPanel>
+                                <GroupBox Header="Файлы">
+                                    <StackPanel Name="stp_files">
+                                        <ComboBox Name="cmb_files" Width="120" SelectionChanged="Cmb_files_SelectionChanged"/>
+                                    </StackPanel>
+                                </GroupBox>
+                            </StackPanel>
                         </StackPanel>
                         <StackPanel>
                             <GroupBox Header="Действия над предметами">
