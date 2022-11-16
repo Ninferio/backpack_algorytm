@@ -5,18 +5,59 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Backpack_algorytm"
         mc:Ignorable="d"
-        Title="MainWindow" Height="800" Width="800">
+        Title="MainWindow" Height="800" Width="800"
+        >
     <Grid>
         <StackPanel>
-            <StackPanel>
-                <Button Name="btnDoit" Content="Do it"  Click="Button_Click"/>
-            </StackPanel>
-            <StackPanel Width="auto">
-                <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible">
-                    <Label Name="lblmatrix" Background="AliceBlue" FontSize="10"/>
-                </ScrollViewer>
-                
-            </StackPanel>
+            <TabControl>
+                <TabItem Header="Предметы">
+                    <StackPanel>
+                        <StackPanel>
+                            <GroupBox Header="Таблица всех предметов">
+                                <DataGrid AutoGenerateColumns="False" Name="dtg_items_table" Height="300" CanUserAddRows="False" CanUserDeleteRows="True" SelectedCellsChanged="Dtg_items_table_SelectedCellsChanged" SelectionMode="Extended">
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Header="Номер" Binding="{Binding id}"/>
+                                        <DataGridTextColumn Header="Наименование" Binding="{Binding name}"/>
+                                        <DataGridTextColumn Header="Стоимость" Binding="{Binding value}"/>
+                                        <DataGridTextColumn Header="Площадь/вес" Binding="{Binding area}"/>
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                            </GroupBox>
+                        </StackPanel>
+                        <StackPanel>
+                            <GroupBox Header="Действия над предметами">
+                                <StackPanel Orientation="Horizontal">
+                                    <StackPanel>
+                                        <Button Name="btn_add_item" Content="Добавить предмет" Click="Btn_add_item_Click"/>
+                                    </StackPanel>
+                                    <StackPanel>
+                                        <Button Name="btn_delete_item" Content="Удалить предмет" Click="Btn_delete_item_Click" IsEnabled="False"/>
+                                    </StackPanel>
+                                    <StackPanel>
+                                        <Button Name="btn_save_change" Content="Сохранить изменения" Click="Btn_save_change_Click" IsEnabled="False"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </GroupBox>
+                        </StackPanel>
+                    </StackPanel>
+                    
+                   
+                </TabItem>
+                <TabItem Header="Решения">
+                    <StackPanel>
+                        <Button Name="btnDoit" Content="Do it"  Click="Button_Click"/>
+                        <StackPanel Width="auto">
+                            <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible">
+                                <Label Name="lblmatrix" Background="AliceBlue" FontSize="10"/>
+                            </ScrollViewer>
+
+                        </StackPanel>
+                    </StackPanel>
+                    
+                </TabItem>
+            </TabControl>
+            
+            
         </StackPanel>
         
     </Grid>

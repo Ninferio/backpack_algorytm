@@ -13,3 +13,6 @@ C:\Users\malyg\Desktop\Progs\Backpack_algorytm\Backpack_algorytm\obj\Debug\Backp
 C:\Users\malyg\Desktop\Progs\Backpack_algorytm\Backpack_algorytm\obj\Debug\Backpack_algorytm.csproj.CoreCompileInputs.cache
 C:\Users\malyg\Desktop\Progs\Backpack_algorytm\Backpack_algorytm\obj\Debug\Backpack_algorytm.exe
 C:\Users\malyg\Desktop\Progs\Backpack_algorytm\Backpack_algorytm\obj\Debug\Backpack_algorytm.pdb
+C:\Users\malyg\Desktop\Progs\Backpack_algorytm\Backpack_algorytm\obj\Debug\Windows\Add_item_wondow.g.cs
+C:\Users\malyg\Desktop\Progs\Backpack_algorytm\Backpack_algorytm\obj\Debug\App.baml
+C:\Users\malyg\Desktop\Progs\Backpack_algorytm\Backpack_algorytm\obj\Debug\Windows\Add_item_wondow.baml

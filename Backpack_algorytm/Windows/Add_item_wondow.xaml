@@ -1,0 +1,30 @@
+﻿<Window x:Class="Backpack_algorytm.Windows.Add_item_wondow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Backpack_algorytm.Windows"
+        mc:Ignorable="d"
+        Title="Добавить предмет" Height="auto" Width="auto"
+        SizeToContent="WidthAndHeight">
+    <Grid>
+        
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Label Content="Наименование:"/>
+                <TextBox Text="имя" Width="100" Name="txb_name"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Label Content="Стоимость/значение"/>
+                <TextBox Text="имя" Width="100" Name="txb_value"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Label Content="Вес/площадь"/>
+                <TextBox Text="имя" Width="100" Name="txb_area"/>
+            </StackPanel>
+            <StackPanel>
+                <Button Name="btn_add_item" Content="Добавить" IsEnabled="False" Click="Btn_add_item_Click"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

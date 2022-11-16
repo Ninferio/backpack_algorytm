@@ -1,4 +1,5 @@
 ﻿using Backpack_algorytm.model;
+using Backpack_algorytm.Windows;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -25,6 +26,7 @@ namespace Backpack_algorytm
         //лист предметов
         List<Items> items = new List<Items>();
         int count;
+        string path = @"Items.txt";
         int max_space = 2000;
         int[,] table;
         int matrix_height;
@@ -34,10 +36,10 @@ namespace Backpack_algorytm
             InitializeComponent();
 
             //@"items_example.txt"
-            string path = @"Items.txt";
+           
 
             GetItemCount(path);
-
+            int number = 0;
 
 
             string line;
@@ -45,7 +47,9 @@ namespace Backpack_algorytm
             TextReader reader = new StreamReader(path);
             while ((line = reader.ReadLine()) != null)
             {
+                number++;
                 Items item = new Items();
+                item.id = number;
                 string[] subs = line.Split(',');
                 int i = 0;
                 foreach (var word in subs)
@@ -71,6 +75,7 @@ namespace Backpack_algorytm
                 items.Add(item);
             }
             reader.Close();
+            ReloadDTG();
         }
         public void GetItemCount(string path)
         {
@@ -171,5 +176,81 @@ namespace Backpack_algorytm
         {
             GoBackPack();
         }
+
+        private void Btn_delete_item_Click(object sender, RoutedEventArgs e)
+        {
+            List<Items> select_items = new List<Items>();
+            foreach(var data in dtg_items_table.SelectedItems)
+            {
+                Items item =  data as Items;
+                select_items.Add(item);
+            }
+            //Удоление выбранных предметов
+            foreach(var item in select_items)
+            {
+                string item_string = String.Format("{0},{1},{2}", item.name, item.area, item.value);
+                //перепор файла
+                string line;
+                TextReader reader = new StreamReader(path);
+
+                while ((line = reader.ReadLine()) != null)
+                {
+                    
+                    if(line != item_string)
+                    {
+                     
+                    }
+                   
+                }
+                reader.Close();
+                
+            }
+            /*
+            Items selected_item = (Items)dtg_items_table.SelectedItem;
+            if (selected_item != null)
+            {
+                
+            }
+            else
+            {
+                MessageBox.Show("выберете предмет");
+            }*/
+        }
+
+        private void Btn_add_item_Click(object sender, RoutedEventArgs e)
+        {
+           
+            //Window window = new Add_item_wondow();
+            //window.Show();
+            int max_id = items.Max(x => x.id) +1;
+            items.Add(new Items("",0,0, max_id));
+            ReloadDTG();
+        }
+        public void ReloadDTG()
+        {
+            dtg_items_table.ItemsSource = null;
+            dtg_items_table.ItemsSource = items;
+        }
+
+        private void Dtg_items_table_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
+        {
+           
+            
+            btn_save_change.IsEnabled = true;
+            btn_delete_item.IsEnabled = true;
+           
+            
+        }
+        public void UpdateItemFile(Items predmet)
+        {
+            
+        }
+        private void Btn_save_change_Click(object sender, RoutedEventArgs e)
+        {
+            Items selected_item = (Items)dtg_items_table.SelectedItem;
+
+            
+        }
+        
     }
 }
