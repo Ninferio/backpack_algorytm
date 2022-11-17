@@ -27,11 +27,23 @@
                                 </GroupBox>
                             </StackPanel>
                             <StackPanel>
-                                <GroupBox Header="Файлы">
-                                    <StackPanel Name="stp_files">
-                                        <ComboBox Name="cmb_files" Width="120" SelectionChanged="Cmb_files_SelectionChanged"/>
-                                    </StackPanel>
-                                </GroupBox>
+                                <StackPanel>
+                                    <GroupBox Header="Файлы">
+                                        <StackPanel Name="stp_files">
+                                            <ComboBox Name="cmb_files" Width="120" SelectionChanged="Cmb_files_SelectionChanged"/>
+                                        </StackPanel>
+                                    </GroupBox>
+                                </StackPanel>
+                                <StackPanel>
+                                    <GroupBox Header="Переменные">
+                                        <StackPanel Orientation="Vertical" HorizontalAlignment="Right">
+                                            <StackPanel Orientation="Horizontal">
+                                                <Label Content="Всего места в рюкзаке:"/>
+                                                <TextBox Name="txb_backpakc_area" Width="50" TextChanged="Txb_backpakc_area_TextChanged" PreviewTextInput="Txb_backpakc_area_PreviewTextInput" />
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </GroupBox>
+                                </StackPanel>
                             </StackPanel>
                         </StackPanel>
                         <StackPanel>
@@ -55,13 +67,51 @@
                 </TabItem>
                 <TabItem Header="Решения">
                     <StackPanel>
-                        <Button Name="btnDoit" Content="Do it"  Click="Button_Click"/>
-                        <StackPanel Width="auto">
-                            <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible">
-                                <Label Name="lblmatrix" Background="AliceBlue" FontSize="10"/>
-                            </ScrollViewer>
-
+                        <StackPanel Orientation="Horizontal">
+                            <GroupBox Header="Возможние решения">
+                                <StackPanel Orientation="Vertical">
+                                    <StackPanel>
+                                        <Button Content="Ограниченный рюкзак" Name="btn_Bounded_Knapsack_Problem" Click="Button_Click"/>
+                                    </StackPanel>
+                                    <StackPanel>
+                                        <Button Content="Неограниченный рюкзак" Name="btn_Unbounded_Knapsack_Problem"  Click="Button_Click"/>
+                                    </StackPanel>
+                                    <StackPanel>
+                                        <Button Content="Непрерывный рюкзак" Name="btn_Continuous_Knapsack_Problem" Click="Button_Click"/>
+                                    </StackPanel>
+                                   
+                                </StackPanel>
+                                
+                            </GroupBox>
+                            <GroupBox Header="Действия">
+                                <StackPanel HorizontalAlignment="Center" >
+                                    <StackPanel >
+                                        <CheckBox Content="Показать/скрыть матрицу" IsChecked="False"/>
+                                    </StackPanel>
+                                    <StackPanel  >
+                                        <Button Content="Стереть результат" Click="Button_Click" Name="btn_delete_result"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </GroupBox>
                         </StackPanel>
+                        <StackPanel>
+                            <GroupBox Header="Список предметов">
+                                <StackPanel Width="auto">
+                                    <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible">
+                                        <DataGrid AutoGenerateColumns="False" Name="dtg_select_items_table" Height="200" CanUserAddRows="False" CanUserDeleteRows="True" SelectedCellsChanged="Dtg_items_table_SelectedCellsChanged" SelectionMode="Extended">
+                                            <DataGrid.Columns>
+                                                <DataGridTextColumn Header="Номер" Binding="{Binding id}"/>
+                                                <DataGridTextColumn Header="Наименование" Binding="{Binding name}"/>
+                                                <DataGridTextColumn Header="Стоимость" Binding="{Binding value}"/>
+                                                <DataGridTextColumn Header="Площадь/вес" Binding="{Binding area}"/>
+                                            </DataGrid.Columns>
+                                        </DataGrid>
+                                    </ScrollViewer>
+
+                                </StackPanel>
+                            </GroupBox>
+                        </StackPanel>
+                       
                     </StackPanel>
                     
                 </TabItem>
